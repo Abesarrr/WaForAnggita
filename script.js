@@ -23,6 +23,7 @@ const messages = [
 ];
 
 let currentMessageIndex = 0;
+let iOSNotificationClicked = false
 let typingInProgress = false; // Menandakan apakah sedang mengetik
 
 // Fungsi untuk menampilkan teks seperti sedang mengetik
@@ -57,8 +58,21 @@ function closePopup() {
     document.getElementById('popup').classList.add('hidden');
 }
 
+// Event listener untuk iOS notification
+document.getElementById('ios-notification').addEventListener('click', function() {
+    iOSNotificationClicked = true;
+    this.style.display = 'none'; // Sembunyikan iOS notification setelah diklik
+    
+    // Tampilkan WhatsApp notification dan pesan pertama
+    const whatsappNotification = document.getElementById('whatsapp-notification');
+    whatsappNotification.classList.add('show');
+    typeMessage(messages[currentMessageIndex]);
+});
+
 // Tampilkan pesan selanjutnya ketika tombol ditekan
 document.getElementById('next-message-btn').addEventListener('click', function () {
+    if (!iOSNotificationClicked) return;
+    
     const notification = document.getElementById('whatsapp-notification');
     const nextMessageBtn = document.getElementById('next-message-btn');
 
@@ -94,17 +108,6 @@ document.getElementById('next-message-btn').addEventListener('click', function (
             notification.classList.add('show'); // Ganti 'visible' dengan 'show'
         }, 500); // Waktu untuk efek keluar masuk notifikasi
     }
-});
-
-// Saat halaman pertama kali dibuka , tampilkan pesan pertama dengan efek mengetik
-window.addEventListener('DOMContentLoaded', function () {
-    const notification = document.getElementById('whatsapp-notification');
-    
-    // Tampilkan notifikasi dengan animasi
-    notification.classList.add('show'); // Ganti 'visible' dengan 'show'
-
-    // Tampilkan pesan pertama dengan efek mengetik
-    typeMessage(messages[currentMessageIndex]);
 });
 
 // Event listener untuk menutup popup

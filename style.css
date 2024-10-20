@@ -53,17 +53,18 @@ body {
 }
 .whatsapp-notification {
     opacity: 0; /* Mulai dengan notifikasi tidak terlihat */
-    transform: translateY(-10px); /* Mulai sedikit di atas posisi normal */
     transition: opacity 0.5s ease, transform 0.5s ease; /* Transisi untuk animasi masuk */
-    background-color: #ffffff; /* Warna latar belakang notifikasi */
-    border: 1px solid #34b7f1; /* Border berwarna */
-    border-radius: 8px; /* Sudut membulat */
-    padding: 10px; /* Padding di dalam notifikasi */
-    width: 300px; /* Lebar notifikasi */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek kedalaman */
     position: relative; /* Posisi relatif untuk elemen di dalamnya */
     margin: 10px; /* Margin untuk jarak antar notifikasi */
     text-align: left;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    max-width: 90%;
+    width: 300px;
 }
 
 .whatsapp-notification.show {
@@ -86,7 +87,7 @@ body {
 
 .whatsapp-label {
     font-size: 14px;
-    color: #3a3a3a;
+    color: #000;
     font-weight: bold;
 }
 
@@ -211,4 +212,40 @@ button#close-popup-btn {
 
 button#send-message-btn {
     background-color: #25d36500; /* Warna khusus untuk tombol kirim */
+}
+.ios-notification {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 14px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    max-width: 90%;
+    width: 300px;
+    cursor: pointer;
+}
+
+.ios-notification-content {
+    display: flex;
+    text-align: left;
+}
+
+.ios-notification .whatsapp-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.ios-notification-text strong {
+    font-size: 16px;
+    color: #000;
+}
+
+.ios-notification-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #555;
 }
