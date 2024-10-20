@@ -125,8 +125,14 @@ document.getElementById('send-message-btn').addEventListener('click', function (
 const backgroundMusic = document.getElementById('background-music');
 // Mute audio saat dimuat
 backgroundMusic.muted = true;
+
+// Cek preferensi audio dari localStorage
+if (localStorage.getItem('audioPreference') === 'enabled') {
+    backgroundMusic.muted = false; // Hapus mute jika pengguna sebelumnya memilih untuk memutar
+    backgroundMusic.play();
+}
 // Mulai musik ketika halaman selesai dimuat
-window.addEventListener('load', function () {
+window.addEventListener('click', function () {
     backgroundMusic.muted = false; // Hapus mute
     backgroundMusic.play().catch(error => {
         console.log("Musik tidak dapat diputar otomatis. Silakan aktifkan suara di browser.");
