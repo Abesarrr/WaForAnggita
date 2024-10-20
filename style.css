@@ -33,7 +33,7 @@ body {
 @keyframes fadeIn {
     from {
         opacity: 0; /* Mulai dari tidak terlihat */
-        transform: translateX(-20px); /* Mulai dari 20px di sebelah kiri */
+        transform: translateX(-150px); /* Mulai dari 20px di sebelah kiri */
     }
     to {
         opacity: 1; /* Menjadi terlihat */
@@ -65,6 +65,7 @@ body {
     backdrop-filter: blur(10px);
     max-width: 90%;
     width: 300px;
+    z-index: 0;
 }
 
 .whatsapp-notification.show {
@@ -105,8 +106,8 @@ body {
     align-items: center; /* Menyelaraskan foto dan nama secara vertikal */
 }
 .profile-picture {
-    width: 20px; /* Ukuran lebar foto profil */
-    height: 20px; /* Ukuran tinggi foto profil */
+    width: 30px; /* Ukuran lebar foto profil */
+    height: 30px; /* Ukuran tinggi foto profil */
     border-radius: 50%; /* Membuat foto profil menjadi bulat */
     object-fit: cover; /* Memastikan gambar terpotong dengan baik sesuai ukuran */
     border: 2px solid #34b7f1; /* Menambahkan border berwarna (opsional) */
@@ -116,7 +117,7 @@ body {
 
 .contact-name {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     color: #333;
 }
 
@@ -151,68 +152,62 @@ body {
 /* Popup */
 .popup {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(211, 211, 211, 0.918);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+    top: 59%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 310px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px;
+    backdrop-filter: blur(10px);
 }
 .popup.hidden {
     display: none;
 }
 
 .popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
+    text-align: center; /* Rata tengah untuk konten */
+}
+
+.popup h2 {
+    margin-bottom: 15px; /* Jarak bawah untuk judul */
+    font-size: 18px; /* Ukuran font judul */
+    color: #333; /* Warna teks judul */
 }
 
 textarea {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    font-size: 16px;
+    width: 90%; /* Lebar textarea */
+    height: 85px; /* Tinggi textarea */
+    border-radius: 10px; /* Sudut membulat untuk textarea */
+    border: 0.5px solid #ccc; /* Garis batas */
+    padding: 10px; /* Ruang di dalam textarea */
+    font-size: 14px; /* Ukuran font textarea */
+    color: #333; /* Warna teks textarea */
 }
 
 button {
-    padding: 12px 24px; /* Ukuran tombol */
-    font-size: 16px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px; /* Radius lebih besar untuk tampilan bulat */
-    background-color: #34b7f1; /* Warna tombol utama */
-    color: rgb(80, 91, 255);
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(112, 112, 112, 0.2); /* Efek bayangan */
-    transition: background-color 0.3s, transform 0.2s; /* Efek transisi */
+    background-color: #007bff; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    border: none; /* Tanpa garis batas */
+    border-radius: 5px; /* Sudut membulat untuk tombol */
+    padding: 10px 15px; /* Ruang di dalam tombol */
+    cursor: pointer; /* Tanda kursor untuk tombol */
+    margin: 5px; /* Jarak antar tombol */
+    font-size: 14px; /* Ukuran font tombol */
+    transition: background-color 0.3s; /* Transisi untuk efek hover */
 }
 
 button:hover {
-    background-color: rgb(80, 91, 255);; /* Warna saat hover */
-    transform: translateY(-2px); /* Efek angkat saat hover */
+    background-color: #0056b3;
 }
 
 button:active {
     transform: translateY(0); /* Kembali ke posisi semula saat ditekan */
 }
 
-/* Gaya khusus untuk tombol-tombol tertentu jika diperlukan */
-button#close-popup-btn {
-    background-color: #ff3a3000; /* Warna khusus untuk tombol tutup */
-}
 
-button#send-message-btn {
-    background-color: #25d36500; /* Warna khusus untuk tombol kirim */
-}
 .ios-notification {
     position: absolute;
     top: 50%;
@@ -226,6 +221,7 @@ button#send-message-btn {
     max-width: 90%;
     width: 300px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .ios-notification-content {
