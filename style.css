@@ -49,7 +49,6 @@ body {
     background-color: transparent; /* Latar belakang semi-transparan */
     padding: 5px 10px; /* Padding untuk ruang di dalam */
     border-radius: 5px; /* Sudut membulat */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek kedalaman */
     z-index: 1000; /* Pastikan di atas elemen lain */
 }
 .whatsapp-notification {
