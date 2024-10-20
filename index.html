@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucin WhatsApp UI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="lockscreen">
+        <div class="time">
+            <h1 id="current-time">21:12</h1>
+            <p id="current-date">Sunday, 20 October</p>
+        </div>
+        
+        <div class="whatsapp-notification hidden" id="whatsapp-notification">
+            <div class="notification-header">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" class="whatsapp-icon">
+                <span class="whatsapp-label">WHATSAPP</span>
+                <span class="notification-time">Now</span>
+            </div>
+            <div class="notification-body">
+                <div class="contact-info">
+                    <img src="https://media-cgk1-1.cdn.whatsapp.net/v/t61.24694-24/456091415_912028604133604_708572787443467973_n.jpg?stp=dst-jpg_s96x96&ccb=11-4&oh=01_Q5AaIEzZByKY8oYDm-KpX2pU-J63AU8eFKo55pmZCNRAV9NE&oe=67224379&_nc_sid=5e03e0&_nc_cat=101" alt="Profile" class="profile-picture">
+                    <span class="contact-name">🌍</span>
+                </div>
+                <p class="message-text" id="message-text"></p> <!-- Pesan akan diisi dari JavaScript -->
+            </div>
+        </div>
+        
+        <button class="next-message-btn" id="next-message-btn" style="display: none;">Pesan selanjutnya</button> <!-- Tombol disembunyikan secara default -->
+    
+        <audio id="background-music" loop>
+            <source src="AThousandYears.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    
+    </div>
+
+    <!-- Popup untuk input pesan -->
+    <div class="popup hidden" id="popup">
+        <div class="popup-content">
+            <h2>Tulis pesan</h2>
+            <textarea style="width: 90%; height: 85px;" id="custom-message" placeholder="Tulis pesanmu di sini..."></textarea>
+            <button id="send-message-btn">Kirim</button>
+            <button id="close-popup-btn">Batal</button>
+        </div>
+    </div>
+
+    <div class="credit">
+        &copy; Made with ❤️ by Wahyu Adi Suryanto / Abesar
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
