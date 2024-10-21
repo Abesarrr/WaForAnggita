@@ -119,7 +119,7 @@ document.getElementById('send-message-btn').addEventListener('click', function (
     
     // Jika pesan tidak kosong, buka WhatsApp dengan pesan tersebut
     if (message.trim() !== '') {
-        const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/6282217417267?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank'); // Buka link WhatsApp
     }
 });
